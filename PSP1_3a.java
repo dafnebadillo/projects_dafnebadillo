@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class PSP1_3a{
+
 	public static void valoresN(int a[][]){
 	int n, x=0, y=0;
 	for(n=0; n<10; n++){
@@ -8,7 +9,8 @@ public class PSP1_3a{
 			System.out.print(" \n n \n" +n);	
 		}System.out.println(" ");	
 	}
-	public static void valoresX(int b[][]){
+
+	public static double valoresX(int b[][]){
 		Scanner entrada = new Scanner(System.in);
 		int x,a=0, sum=0;
 		float xavg=0;
@@ -18,10 +20,19 @@ public class PSP1_3a{
 			b[a][x] = entrada.nextInt();
 			sum = sum + b[a][x];
 		}System.out.println("SUMATORIA" + sum);
-		xavg = sum/10;
+		// xavg = sum/10;
 		System.out.println("Xavg = " +xavg);
 		
+          return xavg;
+
 	}
+
+        public static double xavg ( double x, double n)
+        {
+            return x / n;
+
+	}
+
 	public static void valoresY(int c[][]){
 		Scanner entrada = new Scanner(System.in);
 		int a=0,y, sum=0;
@@ -86,12 +97,15 @@ public class PSP1_3a{
 		int f[][] = new int [10][10];
 		
 		valoresN(n);
-		valoresX(b);
-		valoresY(c);
-		valoresXX(b,d);
-		valoresXY(b,c,e);
-		valoresYY(c,f);
+		double sumx = valoresX(b);
+		double xavg = xavg(sumx, 10);
 
+		double yavg = valoresY(c);
+		double xx = valoresXX(b,d);
+		double xy = valoresXY(b,c,e);
+		double yy = valoresYY(c,f);
+
+                double b1 = getb1(xx, yy, xavg);
 		
 	}
 }
